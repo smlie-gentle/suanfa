@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Stack() {
+        // 栈中的属性
+        var items = []
+
+        //第一种方法   比较省内存   下面都有两种方法
+        //  栈的压栈或入栈方法封装   
+        // Stack.prototype.push = function(element) {
+        //    this.items.push(element)
+        // }
+
+        // 第二种方法  栈的压栈
+        this.push = function(element) {
+            items.push(element)
+        }
+
+        // 出栈操作
+        this.pop = function() {
+            return items.pop()
+        }
+
+        // 返回栈顶部元素的操作  peek
+        this.peek = function() {
+            return items[items.length - 1]
+        }
+
+        // 判断栈内是否有元素
+        this.isEmpty = function() {
+            return items.length == 0
+        }
+
+        // 栈内元素的个数
+        this.size = function() {
+            return items.length
+        }
+
+        this.toString = function() {
+            var resultString = ''
+            for (let i = 0; i < items.length; i++) {
+                resultString += items[i] + ' '
+            }
+            return resultString
+        }
+
+    }
+    var s = new Stack()
+    s.push(10)
+    s.push(5)
+    s.push(90)
+    s.push(60)
+    console.log(s.toString());
+    // alert(s.pop())
+    console.log(s.pop());
+    console.log(s.peek());
+    console.log(s.isEmpty());
+    console.log(s.size());
+    console.log(s.toString());
+</script>
+
+</html>

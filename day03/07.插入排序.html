@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 插入排序
+    let a = [3, 4, 7, 5, 30, 8, 33, 42, 56, 1, 4, 67]
+
+    function insertSort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let current = arr[i]
+            let j = i - 1
+            for (; j >= 0; j--) {
+                // 如果arr[i]小于arr[j]的话 所有在j后面的都需要向后面移动一位
+                if (current < arr[j]) {
+                    arr[j + 1] = arr[j]
+                } else {
+                    break
+                }
+            }
+            [current, arr[j + 1]] = [arr[j + 1], current]
+        }
+    }
+    insertSort(a)
+    console.log(a);
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let str = "abcdabcdaa我是最帅的帅帅帅乃去了"
+
+    function fn(str) {
+        // 用来判断数据是否重复
+        let obj = {}
+            // 用来返回数据和存入重复次数
+        let max = {
+            count: 0,
+            str: []
+        }
+        for (let i = 0; i < str.length; i++) {
+            let current = str.charAt(i);
+            if (obj[current]) {
+                obj[current]++
+            } else {
+                obj[current] = 1
+            }
+            // 判断是否出现最大次数
+            if (obj[current] > max.count) {
+                max.count = obj[current]
+                max.str = [current]
+            } else if (obj[current] === max.count) {
+                max.str.push(current)
+            }
+        }
+        if (max.str.length === 0) {
+            return ""
+        }
+        if (max.str.length === 1) {
+            return max.str[0]
+        }
+        if (max.str.length > 1) {
+            return max
+        }
+    }
+    console.log(fn(str));
+</script>
+
+</html>

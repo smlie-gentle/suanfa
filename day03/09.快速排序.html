@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let a = [44, 33, 8, 1, 88, 99, 57, 46, 25, 9]
+        // 33, 8, 1, 25, 9, 44, 88, 99, 57, 46
+        // 8, 1, 25, 9, 33, 44
+        // 1, 8, 25, 9, 33, 44
+        // 1, 8, 9, 25, 33, 44
+        // 88, 99, 57, 46
+        // 57, 46, 88, 99,
+        // 46, 57, 88, 99
+
+
+    function quick(arr, left, right) {
+        // 设置一个起点
+        // let point = left;
+        // 设置一个目标点位
+        let target = left + 1
+        for (let i = left + 1; i < arr.length; i++) {
+            if (arr[i] < arr[left]) {
+                // [arr[target], arr[i]] = [arr[i], arr[target]]
+                swap(arr, i, target)
+                target++
+            }
+        }
+        // 让比point值小的都在前面
+        target--
+        swap(arr, left, target)
+        console.log(left);
+        console.log('右', target + 1);
+        // 因为自己的值位置确定了
+        // 左侧的序号范围【left，target-1】
+        if (left < target - 1) {
+            quick(arr, left, target - 1)
+        }
+        // 右侧的序号范围【target+1,right】
+        if (target + 1 < right) {
+            quick(arr, target + 1, right)
+        }
+    }
+
+    function swap(arr, a, b) {
+        [arr[a], arr[b]] = [arr[b], arr[a]]
+    }
+    quick(a, 0, a.length - 1)
+    console.log(a);
+</script>
+
+</html>

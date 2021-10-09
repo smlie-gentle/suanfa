@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function merge(left, right) {
+    //     let result = []
+    //         //比较左数组的第一个值的大小
+    //     while (left.length && right.length) {
+    //         if (left[0] < right[0]) {
+    //             result.push(left.shift())
+    //         } else {
+    //             result.push(right.shift())
+    //         }
+    //     }
+    //     // 判断左边/右边有没有剩余的
+    //     result.push(...left, ...right)
+    //         /*if (left.length){
+    //         result.push (.. .left)
+    //         if (right.length){
+    //         result.push ( ...right)}*/
+    //     console.log('result: ', result);
+    // }
+    // merge([1, 2, 7, 8], [3, 9, 10, 11])'
+    let len = 3
+    let mid = len / 2 | 0
+    console.log(mid); //1   单竖杠可以进行取整运算，就是只保留正数部分，小数部分通过拿掉   是通过2进制来进行运算的
+
+    // 3 | 4
+    // 转换为二进制之后011 | 100 相加得到111 = 7
+    // console.log(3 | 4); //7
+</script>
+
+</html>

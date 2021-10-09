@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 时间复杂度 O(n)
+
+    let a = [1, 2, 2, 3, 5, 6, 4, 7, 7, 5, 6, 3, 2, 1, 1, 1]
+
+    // function fn(arr) {
+    //     let max = {};
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let current = arr[i]
+    //         if (max[current]) {
+    //             arr.splice(i, 1)
+    //                 // 删除后数组长度会变  所以i--
+    //             i--
+    //         } else {
+    //             max[current] = true
+    //         }
+    //     }
+    // }
+
+    // 倒着遍历不需要 i--
+    function fn(arr) {
+        let max = {}
+        for (let i = arr.length; i >= 0; i--) {
+            let current = arr[i];
+            if (max[current]) {
+                arr.splice(i, 1)
+            } else {
+                max[current] = true
+            }
+
+        }
+    }
+    fn(a)
+    console.log(a);
+</script>
+
+</html>

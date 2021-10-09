@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 归并排序 
+    // 算法复杂度 n*logn
+    let a = [44, 5, 6, 1, 55, 67, 8, 34, 99];
+    // 分割数组
+    function mergeSort(arr) {
+        let len = arr.length
+            // 判断结束递归条件
+        if (len < 2) {
+            return arr
+        }
+        // 分割左右两块
+        let mid = len / 2 | 0;
+        let left = arr.slice(0, mid)
+        let right = arr.slice(mid);
+        // 递归函数分割数组
+        let a = mergeSort(left);
+        let b = mergeSort(right)
+        return merge(a, b)
+    }
+    // 接收一个左数组，一个右数组
+    function merge(left, right) {
+        let result = []
+            // 左数组和右数组不为空
+        while ((left.length != 0) && (right.length != 0)) {
+            if (left[0] < right[0]) {
+                result.push(left.shift())
+            } else {
+                result.push(right.shift())
+            }
+            // console.log(result);
+        }
+        result.push(...left, ...right)
+        return result
+    }
+    console.log(mergeSort(a));
+</script>
+
+</html>

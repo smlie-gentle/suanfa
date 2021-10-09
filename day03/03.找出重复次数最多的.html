@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let a = "abcdabcdaa我是最帅的帅帅帅乃去了"
+
+    function fn(str) {
+        // 存储最大次数与字符
+        let max = {
+                count: 0,
+                cur: []
+            }
+            // 给外层for循环命名为 a
+        a: for (let i = 0; i < str.length; i++) {
+                let current = str.charAt(i);
+                // 相同的不需要进行处理
+                for (let k = 0; k < i; k++) {
+                    if (current === str.charAt(k)) {
+                        continue a
+                    }
+                }
+                let rep = 1;
+                for (let j = i + 1; j < str.length; j++) {
+                    if (current === str.charAt(j)) {
+                        rep++;
+                    }
+                }
+                if (rep > max.count) {
+                    max.count = rep
+                    max.cur = [current]
+                } else if (rep === max.count) {
+                    max.cur.push(current)
+                }
+
+            }
+            // 判断max内部数据
+        if (max.cur.length === 0) {
+            return ""
+                // } else if (max.cur.length === 1) {
+                //     return max
+        } else {
+            return max
+        }
+    }
+    console.log(fn(a));
+</script>
+
+</html>
